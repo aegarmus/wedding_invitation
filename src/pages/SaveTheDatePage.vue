@@ -13,7 +13,6 @@ export default {
     data() {
         return {
             imageUrl: '/images/prueba-imagen.jpg',
-            title: 'Save the Date!',
             eventDate: '2025-04-25',
             timeInit: '17:30',
             timeFinish: '22:00',

@@ -27,9 +27,8 @@ export default {
             } else {
                 console.error('El objeto de audio no está inicializado.');
             };
-        };
-    };
-
+        }
+    }
 }
 </script>
 
