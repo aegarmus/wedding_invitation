@@ -1,4 +1,10 @@
 @media (max-width: 750px ) {
+    .button-calendar {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
     .save-the-date__title {
         display: flex;
         flex-direction: column;

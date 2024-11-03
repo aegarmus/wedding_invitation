@@ -6,7 +6,7 @@ export const addToGoogleCalendar = (date, timeInit, timeFinish) => {
 
     const event = {
         action: 'TEMPLATE',
-        text: 'Boda Alan y Mariel',
+        text: 'Matrimonio Alan y Mariel',
         dates: `${eventDate}T${formatTimeInit}/${eventDate}T${formatTimeFinish}`,
         details: 'Te esperamos en nuestro gran día c:',
         location: 'José Miguel Carrera 12784, El Bosque, Santiago, Chile'

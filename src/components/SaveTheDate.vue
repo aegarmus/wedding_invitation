@@ -57,7 +57,7 @@ export default {
         <h2 class="save-the-date__couple text-left m-left couple-appear">{{ husband }} <span>&</span> {{ wife }}</h2>
         <CalendarButton 
             :eventDate="date"
-            :timiInit="timeInit"
+            :timeInit="timeInit"
             :timeFinish="timeFinish"
         />
     </div>

@@ -28,3 +28,8 @@
     transform: scale(1.05);
 }
 
+.button-calendar:active,
+.button-calendar:focus {
+    transform: translateX(-50%); 
+}
+
