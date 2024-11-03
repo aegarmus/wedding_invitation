@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Breathing';
+    src: url('/public/types/BreathingPersonalUse-MVOGJ.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Hamilton';
+    src: url('/public/types/Hamiltone-Demo.otf');
+}
+
+@font-face {
+    font-family: 'Hermiona';
+    src: url('/public/types/Hermaiona.otf'),
+         url('/public/types/Hermaiona.ttf');
+}
+
+@font-face {
+    font-family: 'Cataline';
+    src: url('/public/types/Cataline\ Script.ttf');
+}
+
+@font-face {
+    font-family: 'Sloopy Pro';
+    src: url('/public/types/SloopScriptPro-Medium.otf');
+}
