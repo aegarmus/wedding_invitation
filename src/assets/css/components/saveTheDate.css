@@ -12,9 +12,9 @@
 
     letter-spacing: 8px;
 
-    transform: rotate(-1deg);
-
     margin: .5rem 0;
+
+    transition: .5s ;
 }
 
 .save-the-day__span {
@@ -30,6 +30,7 @@
     margin: 0 auto;
     padding: 1rem 0;
 
+    transition: .5s ;
 }
 
 
@@ -52,8 +53,16 @@
     font-weight: lighter;
     letter-spacing: 6px;
     font-size: clamp(3rem, 8vw, 3rem);
+
+    transition: .5s ;
 }
 
 .save-the-date__couple span {
     margin: 0 .5rm 0 5rem;
+}
+
+.save-the-date__title:hover,
+.save-the-date__date-container:hover,
+.save-the-date__couple:hover {
+    text-shadow: 0 0 20px #fff;
 }

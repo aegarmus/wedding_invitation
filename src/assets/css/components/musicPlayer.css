@@ -1,7 +1,7 @@
 .music-control {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    bottom: 2rem;
+    left: 2rem;
 
     z-index: 3;
 }
