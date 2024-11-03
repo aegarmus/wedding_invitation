@@ -1,0 +1,59 @@
+.save-the-date {
+    background-color: transparent;
+    color: var(--neutral-color);
+    
+    z-index: 1;
+}
+
+.save-the-date__title {
+    font-size: clamp(3rem, 8vw, 3rem);
+    font-family: var(--title-solid);
+    font-weight: lighter;
+
+    letter-spacing: 8px;
+
+    transform: rotate(-1deg);
+
+    margin: .5rem 0;
+}
+
+.save-the-day__span {
+    font-size: clamp(5rem, 6vw, 4rem);
+    font-family: var(--title-couple);
+    font-weight: lighter;
+
+}
+
+.save-the-date__date-container {
+    width: 75%;
+
+    margin: 0 auto;
+    padding: 1rem 0;
+
+}
+
+
+.save-the-date__line {
+    height: 2px;
+    flex-grow: 1; 
+    background-color: currentColor;
+    margin: 0 1rem; 
+}
+
+.save-the-date__date {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+
+    margin: .5rem 0;
+}
+
+
+.save-the-date__couple {
+    font-family: var(--title-couple);
+    font-weight: lighter;
+    letter-spacing: 6px;
+    font-size: clamp(3rem, 8vw, 3rem);
+}
+
+.save-the-date__couple span {
+    margin: 0 .5rm 0 5rem;
+}
