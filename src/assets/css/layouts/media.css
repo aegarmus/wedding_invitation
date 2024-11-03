@@ -1,0 +1,14 @@
+@media (max-width: 750px ) {
+    .save-the-date__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .save-the-date__line {
+        width: 20%; 
+        min-width: 50px;
+    }
+}
+
