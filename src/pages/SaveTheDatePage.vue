@@ -27,7 +27,6 @@ export default {
     <BackgroundImage :imageUrl="imageUrl" >
         <MusicPlayer />
         <SaveTheDate
-            :title="title"
             :date="eventDate"
             :timeInit="timeInit"
             :timeFinish="timeFinish"

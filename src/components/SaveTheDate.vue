@@ -1,4 +1,5 @@
 <script>
+import { useGlobalStore } from '../store/store';
 import CalendarButton from './CalendarButton.vue';
 
 export default {
@@ -7,14 +8,6 @@ export default {
         CalendarButton
     },
     props: {
-        husband: {
-            type: String,
-            required: true
-        },
-        wife: {
-            type: String,
-            required: true
-        },
         date: {
             type: String,
             required: true
@@ -34,21 +27,27 @@ export default {
             return `${day}.${month}.${year}`;
         },
     },
+    setup() {
+        const globalStore = useGlobalStore();
+
+        return {
+            husband: globalStore.husbandName,
+            wife: globalStore.wifeName
+        }
+    },
     data() {
         return {
             save: 'SAVE',
             the: 'the',
             dateText: 'DATE'
         }
-        
-
     }
 }
 </script>
 
 <template>
     <div class="save-the-date text-center">
-        <h1 class="save-the-date__title title-appear">{{ save }} <span class="save-the-day__span">{{ the }}</span> {{ dateText }}</h1>
+        <h1 class="head__title title-appear">{{ save }} <span class="save-the-day__span">{{ the }}</span> {{ dateText }}</h1>
         <div class="save-the-date__date-container flex-center date-appear">
             <hr class="save-the-date__line">
             <p class="save-the-date__date">{{ formatDate }}</p>

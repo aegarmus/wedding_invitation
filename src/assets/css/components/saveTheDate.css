@@ -5,7 +5,7 @@
     z-index: 1;
 }
 
-.save-the-date__title {
+.head__title {
     font-size: clamp(3rem, 8vw, 3rem);
     font-family: var(--title-solid);
     font-weight: lighter;

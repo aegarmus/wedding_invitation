@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
-export const GlobalStore = defineStore('global', {
-    store: () => ({
+export const useGlobalStore = defineStore('global', {
+    state: () => ({
         husband: {
             name: 'Alan',
             lastname: 'García'

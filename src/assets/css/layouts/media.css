@@ -5,7 +5,7 @@
         transform: translateX(-50%);
     }
 
-    .save-the-date__title {
+    .head__title {
         display: flex;
         flex-direction: column;
         justify-content: center;
