@@ -1,11 +1,14 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+  import SaveTheDatePage from './pages/SaveTheDatePage.vue';
+
+  export default {
+    name: 'App',
+    components: {
+      SaveTheDatePage
+    }
+  }
 </script>
 
 <template>
-  
+    <SaveTheDatePage />
 </template>
-
-<style scoped>
-
-</style>
