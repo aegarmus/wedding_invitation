@@ -1,0 +1,23 @@
+.music-control {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+
+    z-index: 3;
+}
+
+.music-toggle-button {
+    background-color: transparent;
+    color: var(--neutral-color);
+    
+    border: none;
+
+    font-size: 1.5rem;
+    
+    cursor: pointer;
+    transition: .3s;
+}
+
+.music-toggle-button:hover {
+    text-shadow: 0 0 15px #fff;
+}

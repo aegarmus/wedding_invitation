@@ -12,3 +12,9 @@
     }
 }
 
+@media (max-width: 650px) {
+    .save-the-date__couple {
+        
+        margin-left: 0;
+    }
+}

@@ -1,12 +1,14 @@
 <script>
 import BackgroundImage from '../components/BackgroundImage.vue';
 import SaveTheDate from '../components/SaveTheDate.vue';
+import MusicPlayer from '../components/MusicPlayer.vue'
 
 export default {
     name: 'SaveTheDatePage',
     components: {
         BackgroundImage,
-        SaveTheDate
+        SaveTheDate, 
+        MusicPlayer
     },
     data() {
         return {
@@ -24,6 +26,7 @@ export default {
 
 <template>
     <BackgroundImage :imageUrl="imageUrl" >
+        <MusicPlayer />
         <SaveTheDate
             :title="title"
             :date="eventDate"

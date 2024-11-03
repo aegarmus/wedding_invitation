@@ -30,7 +30,8 @@ export default {
     },
     computed: {
         formatDate() {
-            return this.date.replace(/-/g, '.');
+            const [year, month, day] = this.date.split('-');
+            return `${day}.${month}.${year}`;
         },
     },
     data() {
