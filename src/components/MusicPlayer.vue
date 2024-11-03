@@ -34,7 +34,7 @@ export default {
 
 <template>
     <div class="music-control">
-        <button @click="toggleMusicHandler" class="music-toggle-button">
+        <button v-touch-hover="'hover-button'" @click="toggleMusicHandler" class="music-toggle-button">
             <i :class="isPlaying ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i> 
         </button>
     </div>

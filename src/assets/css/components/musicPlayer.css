@@ -18,6 +18,7 @@
     transition: .3s;
 }
 
-.music-toggle-button:hover {
+.music-toggle-button:hover,
+.music-toggle-button.hover-button {
     text-shadow: 0 0 15px #fff;
 }
