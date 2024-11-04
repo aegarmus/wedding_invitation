@@ -1,6 +1,6 @@
 <script>
 import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { useGlobalStore } from '../store/store';
+import { useHusbandStore, useWifeStore, useEventDateStore } from '../store/index';
 import CalendarButton from './CalendarButton.vue';
 import CountDownTimer from './CountDownTimer.vue';
 
@@ -28,12 +28,15 @@ export default {
         formatDate() {
             const [year, month, day] = this.date.split('-');
             return `${day}.${month}.${year}`;
-        },
+        }
     },
     setup() {
-        const globalStore = useGlobalStore();
-        const releaseDate = new Date('2025-04-24T00:00:00'); 
+        const husbandStore = useHusbandStore();
+        const wifeStore = useWifeStore();
+        const eventDateStore = useEventDateStore();
+        
         const currentTime = ref(new Date());
+        const releaseDate = eventDateStore.releaseDate;
 
         const isButtonVisible = computed(() => currentTime.value >= releaseDate);
 
@@ -48,25 +51,19 @@ export default {
         });
 
         return {
-            husband: globalStore.husbandName,
-            wife: globalStore.wifeName,
+            husband: husbandStore.husbandName,
+            wife: wifeStore.wifeName,
             releaseDate,
             isButtonVisible
         };
-    },
-    data() {
-        return {
-            save: 'SAVE',
-            the: 'the',
-            dateText: 'DATE'
-        }
     }
 }
 </script>
 
+
 <template>
     <div class="save-the-date text-center">
-        <h1 class="head__title title-appear">{{ save }} <span class="save-the-day__span">{{ the }}</span> {{ dateText }}</h1>
+        <h1 class="head__title title-appear">SAVE <span class="save-the-day__span">the</span> DATE</h1>
         <div class="save-the-date__date-container flex-center date-appear">
             <hr class="save-the-date__line">
             <p class="save-the-date__date">{{ formatDate }}</p>

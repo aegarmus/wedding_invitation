@@ -1,38 +1,36 @@
 <script>
 import BackgroundImage from '../components/BackgroundImage.vue';
 import SaveTheDate from '../components/SaveTheDate.vue';
-import MusicPlayer from '../components/MusicPlayer.vue'
+import MusicPlayer from '../components/MusicPlayer.vue';
+import { useEventDateStore } from '../store/index';
 
 export default {
     name: 'SaveTheDatePage',
     components: {
         BackgroundImage,
-        SaveTheDate, 
+        SaveTheDate,
         MusicPlayer
     },
-    data() {
+    setup() {
+        const eventDateStore = useEventDateStore();
+        
         return {
             imageUrl: '/images/prueba-imagen.jpg',
-            eventDate: '2025-04-25',
-            timeInit: '17:30',
-            timeFinish: '22:00',
-            husband: 'Alan',
-            wife: 'Mariel'
-        }
+            eventDate: eventDateStore.eventDate,
+            timeInit: eventDateStore.timeInit,
+            timeFinish: eventDateStore.eventEndTime,
+        };
     }
 }
 </script>
 
 <template>
-    <BackgroundImage :imageUrl="imageUrl" >
+    <BackgroundImage :imageUrl="imageUrl">
         <MusicPlayer />
         <SaveTheDate
             :date="eventDate"
             :timeInit="timeInit"
             :timeFinish="timeFinish"
-            :husband="husband"
-            :wife="wife"
         />
-
     </BackgroundImage>
 </template>

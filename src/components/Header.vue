@@ -1,5 +1,5 @@
 <script>
-import { useGlobalStore } from '../store/store';
+
 import BackgroundImage from './BackgroundImage.vue';
 
 export default {
