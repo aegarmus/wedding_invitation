@@ -29,3 +29,7 @@
 .couple-appear {
     animation: fadeIn 4s ease-in-out
 }
+
+.timer-appear {
+    animation: fadeIn 5s ease-in-out;
+}

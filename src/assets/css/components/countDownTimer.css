@@ -1,0 +1,42 @@
+.timer__container {
+    gap: 1;
+    color: var(--neutral-color);
+
+    transition: 1s;
+}
+
+.timer__field {
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.timer__label {
+    font-size: 1rem;
+   /*  margin-bottom: .5rem; */
+
+    font-family: var(--title-solid);
+}
+
+.timer__value {
+    font-size: 2rem;
+    font-weight: bold;
+
+    font-family: var(--title-cursive);
+}
+
+.timer__separator {
+    height: 3rem;
+    width: 2px;
+    background-color: var(--neutral-color);
+
+    border-radius: 5px;
+}
+
+.timer__container:hover {
+    text-shadow: 0 0 25px #fff;
+}
+
+.timer__container.fade-in {
+    opacity: 1; 
+    transform: translateY(0);
+}

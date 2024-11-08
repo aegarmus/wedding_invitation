@@ -16,3 +16,12 @@ export const calculateTimeLeft = (releaseDate, currentDate) => {
     };
 
 }
+
+export const updateTimerLeft = (timeLeft, realeaseDate ,currentTime, isLoaded) => {
+    const calculatedTime = calculateTimeLeft(realeaseDate, currentTime);
+
+    if(calculatedTime) {
+        timeLeft.value = calculatedTime;
+        isLoaded.value = true;
+    }
+}

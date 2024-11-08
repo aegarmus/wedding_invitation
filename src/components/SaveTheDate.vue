@@ -35,26 +35,18 @@ export default {
         const wifeStore = useWifeStore();
         const eventDateStore = useEventDateStore();
         
-        const currentTime = ref(new Date());
-        const releaseDate = eventDateStore.releaseDate;
+        const isButtonVisible = ref(false);
 
-        const isButtonVisible = computed(() => currentTime.value >= releaseDate);
-
-        onMounted(() => {
-            const intervalId = setInterval(() => {
-                currentTime.value = new Date();
-            }, 1000);
-
-            onUnmounted(() => {
-                clearInterval(intervalId);
-            });
-        });
+        const handleTimerFinished = () => {
+            isButtonVisible.value = true;
+        };
 
         return {
             husband: husbandStore.husbandName,
             wife: wifeStore.wifeName,
-            releaseDate,
-            isButtonVisible
+            releaseDate: eventDateStore.releaseDate,
+            isButtonVisible,
+            handleTimerFinished,
         };
     }
 }
@@ -69,9 +61,16 @@ export default {
             <p class="save-the-date__date">{{ formatDate }}</p>
             <hr class="save-the-date__line">
         </div>
-        <h2 class="save-the-date__couple text-left m-left couple-appear">{{ husband }} <span>&</span> {{ wife }}</h2>
+        <h2 class="save-the-date__couple text-left m-left couple-appear mb-5">{{ husband }} <span>&</span> {{ wife }}</h2>
 
-        <CountDownTimer v-if="!isButtonVisible" :realeaseDate="releaseDate" />
+        <div v-if="!isButtonVisible">
+            <CountDownTimer
+                :realeaseDate="releaseDate"
+                @finished="handleTimerFinished"
+            />
+        </div>
+
+        <InvitationButton v-if="isButtonVisible" />
 
         <CalendarButton 
             :eventDate="date"

@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import './assets/css/main.css';
+import '/src/assets/css/main.css';
 import App from './App.vue';
 import vTouchHover from './directives/v-touch-hover';
 import router from './router';
