@@ -9,10 +9,10 @@ export const calculateTimeLeft = (releaseDate, currentDate) => {
     const seconds = Math.floor((differenceTime / 1000) % 60)
 
     return {
-        days,
-        hours,
-        minutes,
-        seconds
-    }
+        days: days.toString().padStart(2, "0"),
+        hours: hours.toString().padStart(2, "0"),
+        minutes: minutes.toString().padStart(2, "0"),
+        seconds: seconds.toString().padStart(2, "0"),
+    };
 
 }
