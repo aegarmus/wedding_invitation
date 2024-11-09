@@ -24,6 +24,10 @@
     bottom: 2rem;
     left: 6rem;
 
+    height: 38px;
+
+    border-radius: 50%;
+
     z-index: 3;
 
     background-color: var(--contrast-color);
