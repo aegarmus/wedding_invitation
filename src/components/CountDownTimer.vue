@@ -4,21 +4,22 @@ import { updateTimerLeft } from '../utils/calculateTimeLeft';
 
 export default {
     props: {
-        realeaseDate: {
+        releaseDate: {
             type: Date,
             required: true,
         },
     },
     emit: ['finished'],
-    setup(props) {
+    setup(props, { emit }) {
         const currentTime = ref(new Date());
         const timeLeft = ref(null);
         const isLoaded = ref(false); 
         let intervalId;
 
         const checkTimerFinished = () => {
-            updateTimerLeft(timeLeft, props.realeaseDate, currentTime.value, isLoaded);
-            if (!timeLeft.value) {
+            updateTimerLeft(timeLeft, props.releaseDate, currentTime.value, isLoaded);
+
+            if (!timeLeft.value && isLoaded.value) {
                 clearInterval(intervalId);
                 emit('finished');
             }

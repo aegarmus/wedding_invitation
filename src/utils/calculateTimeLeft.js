@@ -17,11 +17,11 @@ export const calculateTimeLeft = (releaseDate, currentDate) => {
 
 }
 
-export const updateTimerLeft = (timeLeft, realeaseDate ,currentTime, isLoaded) => {
-    const calculatedTime = calculateTimeLeft(realeaseDate, currentTime);
+export const updateTimerLeft = (timeLeft, releaseDate ,currentTime, isLoaded) => {
+    const calculatedTime = calculateTimeLeft(releaseDate, currentTime);
 
-    if(calculatedTime) {
-        timeLeft.value = calculatedTime;
-        isLoaded.value = true;
-    }
+    isLoaded.value = true;
+
+    calculatedTime ? timeLeft.value = calculatedTime : timeLeft.value = null;
+
 }

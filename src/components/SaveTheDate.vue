@@ -1,14 +1,16 @@
 <script>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref } from 'vue';
 import { useHusbandStore, useWifeStore, useEventDateStore } from '../store/index';
 import CalendarButton from './CalendarButton.vue';
 import CountDownTimer from './CountDownTimer.vue';
+import InvitationButton from './InvitationButton.vue';
 
 export default {
     name: 'SaveTheDate',
     components: {
         CalendarButton,
-        CountDownTimer
+        CountDownTimer,
+        InvitationButton
     },
     props: {
         date: {
@@ -38,6 +40,7 @@ export default {
         const isButtonVisible = ref(false);
 
         const handleTimerFinished = () => {
+            console.log('Evento finished recibido');
             isButtonVisible.value = true;
         };
 
@@ -65,12 +68,14 @@ export default {
 
         <div v-if="!isButtonVisible">
             <CountDownTimer
-                :realeaseDate="releaseDate"
+                :releaseDate="releaseDate"
                 @finished="handleTimerFinished"
             />
         </div>
 
-        <InvitationButton v-if="isButtonVisible" />
+        <div v-if="isButtonVisible">
+            <InvitationButton />
+        </div>
 
         <CalendarButton 
             :eventDate="date"

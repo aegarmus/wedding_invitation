@@ -15,7 +15,7 @@ export default {
         const eventDateStore = useEventDateStore();
         
         return {
-            imageUrl: '/images/prueba-imagen.jpg',
+            imageUrl: '/images/IMG_2121.jpeg',
             eventDate: eventDateStore.eventDate,
             timeInit: eventDateStore.timeInit,
             timeFinish: eventDateStore.eventEndTime,
