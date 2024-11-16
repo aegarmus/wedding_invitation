@@ -1,5 +1,5 @@
 <script>
-
+import { useHusbandStore, useWifeStore } from '../store/index';
 import BackgroundImage from './BackgroundImage.vue';
 
 export default {
@@ -14,11 +14,12 @@ export default {
         }
     },
     setup() {
-        const globalStore = useGlobalStore();
+        const husbandStore = useHusbandStore();
+        const wifeStore = useWifeStore();
 
         return {
-            husband: globalStore.husbandName,
-            wife: globalStore.wifeName
+            husband: husbandStore.husbandName,
+            wife: wifeStore.wifeName,
         }
     }
 }
