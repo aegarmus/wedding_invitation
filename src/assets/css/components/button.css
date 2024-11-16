@@ -2,21 +2,28 @@
     border: none;
     border-radius: 10px;
 
-    padding: .5rem 1.5rem;
+    padding: .8rem 1.5rem;
 
     cursor: pointer;
 }
 
 
 .button-invitation {
-    background-color: var(--secondary-colo600);
+    background-color: var(--contrast-color);
     color: var(--neutral-color);
 
     font-size: 1rem;
+    font-family: var(--body-font);
 
     border-radius: 5px;
 
     cursor: pointer;
+
+    transition: .3s ease;
+}
+
+.button-invitation:hover {
+    transform: scale(1.05);
 }
 
 .button-calendar {
@@ -33,7 +40,7 @@
     background-color: var(--contrast-color);
     color: var(--neutral-color);
 
-    transition: .5s ease-in;
+    transition: .3s ease-in;
 }
 
 .button-calendar:hover {

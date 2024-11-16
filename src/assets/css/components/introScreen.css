@@ -1,0 +1,32 @@
+.intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+
+    z-index: 4;
+}
+
+.intro-screen__message {
+    color: var(--neutral-color);
+
+    font-size: clamp(2rem, 3vw, 4rem);
+    text-align: center;
+    font-family: var(--body-font);
+    font-weight: medium;
+
+    padding: 0 2rem;
+}
+
+.particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: radial-gradient(circle, #151535, #000000);
+    z-index: 3;
+}
