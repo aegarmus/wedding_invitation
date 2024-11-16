@@ -1,11 +1,34 @@
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, nextTick, onMounted } from 'vue';
+import RippleEffect from './RippleEffect.vue';
 
 
 export default {
     name: "IntroScreen",
+    components: {
+        RippleEffect
+    },
     emits: ["start"],
     setup(_, { emit }) {
+        const rippleCoords = ref({ x: 0, y: 0 });
+        const isRippleActive = ref(false);
+        
+        const handleClick = (event) => {
+            rippleCoords.value = {
+                x: event.clientX,
+                y: event.clientY
+            };
+            
+            isRippleActive.value = true;
+            nextTick(() => {
+                isRippleActive.value = true;
+            });
+        }
+        
+        const handleAnimationEnd = () => {            
+            emit("start");
+        }
+
         const initParticles = () => {
             particlesJS('particles-js', {
                 particles: {
@@ -40,29 +63,34 @@ export default {
             })
         }
 
-        const start = () => {
-            emit("start");
-        };
-
         onMounted(() => {            
             initParticles()
-
-            window.addEventListener("click", start);
-            window.addEventListener("keydown", start);
-            window.addEventListener("touchstart", start);
         });
 
-        return { };
+        return { 
+            rippleCoords,
+            isRippleActive,
+            handleClick,
+            handleAnimationEnd
+        };
     },
 };
 </script>
 
 <template>
-    <div id="particles-js" class="particles-container">
+    <div id="particles-js" class="particles-container" @click="handleClick">
         <div class="intro-screen flex-center">
             <div class="intro-screen__message title-appear">
                 <p>Pulsa cualquier cosa para comenzar</p>
             </div>
         </div>
+
+        <RippleEffect 
+            v-if="isRippleActive"
+            :axisX="rippleCoords.x" 
+            :axisY="rippleCoords.y" 
+            :active="isRippleActive" 
+            @animationEnd="handleAnimationEnd" 
+        />
     </div>
 </template>

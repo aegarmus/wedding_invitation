@@ -40,7 +40,6 @@ export default {
         const isButtonVisible = ref(false);
 
         const handleTimerFinished = () => {
-            console.log('Evento finished recibido');
             isButtonVisible.value = true;
         };
 
@@ -59,7 +58,7 @@ export default {
 <template>
     <div class="save-the-date text-center">
         <h1 class="head__title title-appear">SAVE <span class="save-the-day__span">the</span> DATE</h1>
-        <div class="save-the-date__date-container flex-center date-appear">
+        <div class="save-the-date__date-container flex-center zoom-appear">
             <hr class="save-the-date__line">
             <p class="save-the-date__date">{{ formatDate }}</p>
             <hr class="save-the-date__line">

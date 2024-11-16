@@ -8,6 +8,24 @@
     }
 }
 
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    } to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOutContent {
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
+}
+
 @keyframes zoomIn {
     from {
         opacity: 0;
@@ -18,11 +36,33 @@
     }
 }
 
+@keyframes ripple-effect {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    } to {
+        transform: scale(50);
+        opacity: 0;
+    }
+}
+
+@keyframes saveTheDateIn {
+    from {
+        opacity: 0;
+
+    }
+
+    to {
+        opacity: 1;
+
+    }
+}
+
 .title-appear {
     animation: fadeIn 2s ease-in-out;
 }
 
-.date-appear {
+.zoom-appear {
     animation: zoomIn 3s ease-in-out;
 }
 
@@ -32,4 +72,30 @@
 
 .timer-appear {
     animation: fadeIn 5s ease-in-out;
+}
+
+.ripple-active {
+    animation: ripple-effect 1s ease-out forwards;
+}
+
+.fade-enter-active {
+    animation: fadeInContent 1s ease forwards;
+}
+
+.fade-leave-active {
+    animation: fadeOutContent 3s ease forwards;
+}
+
+.save-the-date-enter-active {
+    animation: saveTheDateIn 2s ease forwards;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }

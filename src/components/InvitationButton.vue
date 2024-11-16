@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-    <button @click="goToInvitation" class="button button-invitation">
+    <button @click="goToInvitation" class="button button-invitation zoom-appear">
         Ver Invitación
     </button>
 </template>
