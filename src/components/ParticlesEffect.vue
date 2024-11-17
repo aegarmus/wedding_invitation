@@ -2,39 +2,53 @@
 import { onMounted, onBeforeUnmount, ref } from 'vue';
 
 export default {
-    name: 'ParticlesEffect',
-    props: {
-        options: {
-            type: Object,
-            required: true
-        },
-        containerId: {
-            type: String,
-            default: 'particules-js'
-        },
+  name: 'ParticlesEffect',
+  props: {
+    options: {
+      type: Object,
+      required: true,
     },
-    setup(props) {
-        const particlesInstance = ref(null);
+    containerId: {
+      type: String,
+      default: 'particles-js',
+    },
+    color: {
+      type: String,
+      default: '#fff',
+    },
+  },
+  setup(props) {
+    const particlesInstance = ref(null);
 
-        onMounted(() => {
-            particlesInstance.value = particlesJS(props.containerId, props.options)
+    onMounted(() => {
+      const optionsWithColor = {
+        ...props.options,
+        particles: {
+          ...props.options.particles,
+          color: {
+            value: props.color,
+          },
+        },
+      };
+
+      particlesInstance.value = particlesJS(props.containerId, optionsWithColor);
+    });
+
+    onBeforeUnmount(() => {
+      if (window.pJSDom && window.pJSDom.length) {
+        window.pJSDom = window.pJSDom.filter((pJS) => {
+          if (pJS.pJS.canvas.el.id === props.containerId) {
+            pJS.pJS.fn.vendors.destroypJS();
+            return false;
+          }
+          return true;
         });
+      }
+    });
 
-        onBeforeUnmount(() => {
-            if (window.pJSDom && window.pJSDom.length) {
-                window.pJSDom = window.pJSDom.filter((pJS) => {
-                    if (pJS.pJS.canvas.el.id === props.containerId) {
-                        pJS.pJS.fn.vendors.destroypJS();
-                        return false;
-                    }
-                    return true;
-                });
-            }
-        });
-
-        return {}
-    }
-}
+    return {};
+  },
+};
 </script>
 
 <template>

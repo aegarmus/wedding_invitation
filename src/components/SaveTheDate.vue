@@ -65,7 +65,8 @@ export default {
         </div>
         <h2 class="save-the-date__couple text-left m-left couple-appear mb-5">{{ husband }} <span>&</span> {{ wife }}</h2>
 
-        <div v-if="!isButtonVisible">
+        <div v-if="!isButtonVisible" class="timer-appear">
+            <p class="flex-center timer-text">Invitación Disponible en</p>
             <CountDownTimer
                 :releaseDate="releaseDate"
                 @finished="handleTimerFinished"

@@ -13,6 +13,7 @@ export default {
   setup(_, { emit }) {
     const rippleCoords = ref({ x: 0, y: 0 });
     const isRippleActive = ref(false);
+    const particleColor = "#b8573b"
 
     const handleClick = (event) => {
       rippleCoords.value = {
@@ -38,9 +39,6 @@ export default {
             enable: true,
             value_area: 2300,
           },
-        },
-        color: {
-          value: '#b8573b',
         },
         shape: {
           type: 'circle',
@@ -98,7 +96,7 @@ export default {
             speed: 3,
           },
           repulse: {
-            distance: 500,
+            distance: 50,
             duration: 0.4,
           },
           push: {
@@ -118,6 +116,7 @@ export default {
       handleClick,
       handleAnimationEnd,
       particlesOptions,
+      particleColor
     };
   },
 };
@@ -125,7 +124,10 @@ export default {
 
 <template>
   <div class="intro-screen-container" @click="handleClick">
-    <ParticlesEffect :options="particlesOptions" />
+    <ParticlesEffect 
+      :options="particlesOptions" 
+      :color="particleColor"
+      />
 
     <div class="intro-screen flex-center">
       <div class="intro-screen__message title-appear">
