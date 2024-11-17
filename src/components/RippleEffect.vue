@@ -15,14 +15,19 @@ export default {
         active: {
             type: Boolean,
             required: true
-        }
+        },
+        rippleColor: {
+            type: String,
+            required: false,
+            default: 'rgba(255, 255, 255, 0.5)',
+        },
     },
     setup(props, { emit }) {
         const rippleStyle = ref({});
 
         watchEffect(() => {
             if(props.active) {
-                const { axisX, axisY } = props;
+                const { axisX, axisY, rippleColor } = props;
                 const windowWidth = window.innerWidth;
                 const windowHeight = window.innerHeight;
 
@@ -43,6 +48,7 @@ export default {
                     top: `${axisY - size / 2}px`,
                     width: `${size}px`,
                     height: `${size}px`,
+                    background: `radial-gradient(circle, ${rippleColor} 30%, transparent 70%)`
                 };
 
                 setTimeout(() => {
@@ -59,11 +65,7 @@ export default {
 
 <template>
     <div class="ripple-container">
-        <div 
-            class="ripple" 
-            :class="{ 'ripple-active': active }" 
-            :style="rippleStyle"
-        >
-        </div>     
+        <div class="ripple" :class="{ 'ripple-active': active }" :style="rippleStyle">
+        </div>
     </div>
 </template>
