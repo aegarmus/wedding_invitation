@@ -74,6 +74,6 @@
 .head__title:hover,
 .save-the-date__date-container:hover,
 .save-the-date__couple:hover,
-.timer-text {
+.timer-text:hover {
     text-shadow: 0 0 25px #fff;
 }
