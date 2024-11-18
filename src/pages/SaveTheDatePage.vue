@@ -1,29 +1,47 @@
 <script>
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 
-import BackgroundImage from '../components/BackgroundImage.vue';
-import SaveTheDate from '../components/SaveTheDate.vue';
-import MusicPlayer from '../components/MusicPlayer.vue';
-import IntroScreen from '../components/IntroScreen.vue';
-import ParticlesEffect from '../components/ParticlesEffect.vue';
+import {
+  BackgroundImage, 
+  CountDownTimer,
+  CalendarButton,
+  InvitationButton,
+  MusicPlayer,
+  IntroScreen,
+  ParticlesEffect
+} from '../components'
 
-import { useEventDateStore } from '../store/index';
+import { useEventDateStore, useHusbandStore, useWifeStore } from '../store/index';
 
 export default {
     name: 'SaveTheDatePage',
     components: {
         BackgroundImage,
-        SaveTheDate,
         MusicPlayer,
+        CalendarButton,
+        CountDownTimer,
+        InvitationButton,
         IntroScreen,
         ParticlesEffect
     },
     setup() {
         const eventDateStore = useEventDateStore();
+        const husbandStore = useHusbandStore();
+        const wifeStore = useWifeStore();
         const showIntro = ref(true);
         const showSaveTheDate = ref(false)
         const musicPlayer = ref(null);
         const particleColor = '#f2e2f4';
+        const isButtonVisible = ref(false);
+
+        const handleTimerFinished = () => {
+            isButtonVisible.value = true;
+        };
+
+        const formatDate = computed(() => {
+            const [year, month, day] = eventDateStore.eventDate.split('-');
+            return `${day}.${month}.${year}`;
+        });
 
         const particlesOptions = {
             particles: {
@@ -122,18 +140,36 @@ export default {
             }
             
         }
+
+        const initializeParticles = () => {
+          // Necesitamos acceder al componente ParticlesEffect y reiniciar las partículas
+          // Podemos utilizar un ref para el componente ParticlesEffect
+          if (particlesEffectRef.value && particlesEffectRef.value.initializeParticles) {
+            particlesEffectRef.value.initializeParticles();
+          }
+        };
+
+        const particlesEffectRef = ref(null);
         
         return {
             imageUrl: '/images/IMG_2121.jpeg',
             eventDate: eventDateStore.eventDate,
+            formatDate,
             timeInit: eventDateStore.timeInit,
             timeFinish: eventDateStore.eventEndTime,
             showIntro,
             showSaveTheDate,
+            husband: husbandStore.husbandName,
+            wife: wifeStore.wifeName,
+            releaseDate: eventDateStore.releaseDate,
+            isButtonVisible,
+            handleTimerFinished,
             handleStart,
             musicPlayer, 
             particleColor,
-            particlesOptions
+            particlesOptions,
+            initializeParticles,
+            particlesEffectRef,
         };
     }
 }
@@ -145,21 +181,43 @@ export default {
       <IntroScreen v-if="showIntro" @start="handleStart" />
     </transition>
 
-    <transition name="save-the-date" mode="in-out">
+    <transition name="save-the-date" mode="in-out" @after-enter="initializeParticles">
       <div v-if="showSaveTheDate">
         <ParticlesEffect 
+          ref="particlesEffectRef"
           :options="particlesOptions" 
           :color="particleColor"
           containerId="particles-save-the-date"
         />
         <BackgroundImage :imageUrl="imageUrl">
           <MusicPlayer ref="musicPlayer" />
-          <SaveTheDate
-            :date="eventDate"
-            :timeInit="timeInit"
-            :timeFinish="timeFinish"
-            class="save-the-date-container"
-          />
+          <header class="save-the-date text-center">
+              <h1 class="head__title title-appear">SAVE <span class="save-the-day__span">the</span> DATE</h1>
+              <div class="save-the-date__date-container flex-center zoom-appear">
+                  <hr class="save-the-date__line">
+                  <p class="save-the-date__date">{{ formatDate }}</p>
+                  <hr class="save-the-date__line">
+              </div>
+              <h2 class="save-the-date__couple text-left m-left couple-appear mb-5">{{ husband }} <span>&</span> {{ wife }}</h2>
+            
+              <div v-if="!isButtonVisible" class="timer-appear">
+                  <p class="flex-center timer-text">Invitación Disponible en</p>
+                  <CountDownTimer
+                      :releaseDate="releaseDate"
+                      @finished="handleTimerFinished"
+                  />
+              </div>
+            
+              <div v-if="isButtonVisible">
+                  <InvitationButton />
+              </div>
+            
+              <CalendarButton 
+                  :eventDate="eventDate"
+                  :timeInit="timeInit"
+                  :timeFinish="timeFinish"
+              />
+          </header>
         </BackgroundImage>
       </div>
     </transition>
