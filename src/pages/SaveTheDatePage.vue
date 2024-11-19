@@ -124,7 +124,7 @@ export default {
         }
         
         return {
-            imageUrl: '/images/IMG_2121.jpeg',
+            imageUrl: '/images/background.webp',
             eventDate: eventDateStore.eventDate,
             timeInit: eventDateStore.timeInit,
             timeFinish: eventDateStore.eventEndTime,
