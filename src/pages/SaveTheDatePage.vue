@@ -142,8 +142,6 @@ export default {
         }
 
         const initializeParticles = () => {
-          // Necesitamos acceder al componente ParticlesEffect y reiniciar las partículas
-          // Podemos utilizar un ref para el componente ParticlesEffect
           if (particlesEffectRef.value && particlesEffectRef.value.initializeParticles) {
             particlesEffectRef.value.initializeParticles();
           }
@@ -199,25 +197,25 @@ export default {
                   <hr class="save-the-date__line">
               </div>
               <h2 class="save-the-date__couple text-left m-left couple-appear mb-5">{{ husband }} <span>&</span> {{ wife }}</h2>
-            
+              
               <div v-if="!isButtonVisible" class="timer-appear">
-                  <p class="flex-center timer-text">Invitación Disponible en</p>
-                  <CountDownTimer
-                      :releaseDate="releaseDate"
-                      @finished="handleTimerFinished"
-                  />
+                <p class="flex-center timer-text">Invitación Disponible en</p>
+                <CountDownTimer
+                :releaseDate="releaseDate"
+                @finished="handleTimerFinished"
+                />
               </div>
-            
+              
               <div v-if="isButtonVisible">
-                  <InvitationButton />
+                <InvitationButton />
               </div>
-            
+            </header>
+              
               <CalendarButton 
                   :eventDate="eventDate"
                   :timeInit="timeInit"
                   :timeFinish="timeFinish"
               />
-          </header>
         </BackgroundImage>
       </div>
     </transition>
