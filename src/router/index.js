@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import SaveTheDatePage from '../pages/SaveTheDatePage.vue';
 import InvitationPage from '../pages/InvitationPage.vue';
-import config from '../config';
+
 
 const routes = [
     {
@@ -17,7 +17,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(config.baseUrl),
+    history: createWebHistory(),
     routes,
 });
 
