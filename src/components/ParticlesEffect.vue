@@ -1,5 +1,5 @@
 <script>
-import { onMounted, onBeforeUnmount, ref } from 'vue';
+import { onMounted, onBeforeUnmount, ref, nextTick } from 'vue';
 
 export default {
   name: 'ParticlesEffect',
@@ -21,17 +21,26 @@ export default {
     const particlesInstance = ref(null);
 
     onMounted(() => {
-      const optionsWithColor = {
-        ...props.options,
-        particles: {
-          ...props.options.particles,
-          color: {
-            value: props.color,
+      nextTick(() => {
+        const optionsWithColor = {
+          ...props.options,
+          particles: {
+            ...props.options.particles,
+            color: {
+              value: props.color,
+            },
           },
-        },
-      };
+        };
 
-      particlesInstance.value = particlesJS(props.containerId, optionsWithColor);
+        if (window.particlesJS) {
+          particlesInstance.value = window.particlesJS(
+            props.containerId,
+            optionsWithColor
+          );
+        } else {
+          console.error('particlesJS no está disponible en el objeto window.');
+        }
+      });
     });
 
     onBeforeUnmount(() => {
@@ -52,5 +61,5 @@ export default {
 </script>
 
 <template>
-    <div :id="containerId" class="particles-container"></div>
+  <div :id="containerId" class="particles-container"></div>
 </template>
