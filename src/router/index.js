@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import SaveTheDatePage from '../pages/SaveTheDatePage.vue';
+const SaveTheDatePage = () => import("../pages/SaveTheDatePage.vue");
 import InvitationPage from '../pages/InvitationPage.vue';
 
 
