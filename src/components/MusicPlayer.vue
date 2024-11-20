@@ -1,6 +1,6 @@
 
 <script>
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue';
+import { onMounted, onBeforeUnmount, ref, watch, computed } from 'vue';
 import { useMusicStore } from '../store';
 
 export default {
@@ -14,18 +14,20 @@ export default {
     setup(props) {
         const musicStore = useMusicStore();
         const audioElement = ref(null);
-        const wasPlaying = ref(false); // Nueva variable para rastrear el estado previo
+        const wasPlaying = ref(false); 
 
         const handleVisibilityChange = () => {
             if (document.hidden) {
                 if (musicStore.isPlaying) {
                     musicStore.pauseMusic();
-                    wasPlaying.value = true; // Registrar que estaba reproduciéndose
+                    wasPlaying.value = true;
+                } else {
+                    // No hacer nada si no estaba reproduciendo
                 }
             } else {
                 if (wasPlaying.value) {
                     musicStore.playMusic();
-                    wasPlaying.value = false; // Resetear el estado
+                    wasPlaying.value = false; 
                 }
             }
         };
@@ -54,7 +56,7 @@ export default {
             if (audioElement.value) {
                 audioElement.value.pause();
                 musicStore.pauseMusic();
-                musicStore.setAudio(null); // Usar la acción del store para mantener la reactividad
+                musicStore.setAudio(null);
             }
         });
 
@@ -65,8 +67,10 @@ export default {
             }
         );
 
+        const isPlaying = computed(() => musicStore.isPlaying);
+
         return {
-            isPlaying: musicStore.isPlaying,
+            isPlaying,
             togglePlay: musicStore.togglePlay,
         };
     },
