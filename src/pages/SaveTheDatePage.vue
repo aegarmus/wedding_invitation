@@ -30,7 +30,6 @@ export default {
         const wifeStore = useWifeStore();
         const showIntro = ref(true);
         const showSaveTheDate = ref(false)
-        const musicPlayer = ref(null);
         const particleColor = '#f2e2f4';
         const isButtonVisible = ref(false);
 
@@ -127,12 +126,6 @@ export default {
                 showIntro.value = false;
                  setTimeout(async () => {
                     showSaveTheDate.value = true
-
-                    if (musicPlayer.value && musicPlayer.value.play) {
-                        musicPlayer.value.play();
-                    } else {
-                        console.warn('MusicPlayer no está disponible');
-                    }
                 }, 100); 
                 
             } catch (error) {
@@ -163,7 +156,6 @@ export default {
             isButtonVisible,
             handleTimerFinished,
             handleStart,
-            musicPlayer, 
             particleColor,
             particlesOptions,
             initializeParticles,
@@ -188,7 +180,7 @@ export default {
           containerId="particles-save-the-date"
         />
         <BackgroundImage :imageUrl="imageUrl">
-          <MusicPlayer ref="musicPlayer" />
+          <MusicPlayer audioSrc="/audio/bg3_prueba.mp3" />
           <header class="save-the-date text-center">
               <h1 translate="no" class="head__title title-appear">SAVE <span class="save-the-day__span">the</span> DATE</h1>
               <div class="save-the-date__date-container flex-center zoom-appear">
