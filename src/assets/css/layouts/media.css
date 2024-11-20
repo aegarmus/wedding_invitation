@@ -24,3 +24,10 @@
         margin-left: 0;
     }
 }
+
+@media (max-height: 600px) {
+    .save-the-date{
+        margin-top: 5px;
+        padding-top: 5px;
+    }
+}
