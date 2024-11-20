@@ -21,8 +21,6 @@ export default {
                 if (musicStore.isPlaying) {
                     musicStore.pauseMusic();
                     wasPlaying.value = true;
-                } else {
-                    // No hacer nada si no estaba reproduciendo
                 }
             } else {
                 if (wasPlaying.value) {
@@ -62,9 +60,6 @@ export default {
 
         watch(
             () => musicStore.isPlaying,
-            (newVal) => {
-                console.log('Estado de reproducción cambiado a:', newVal);
-            }
         );
 
         const isPlaying = computed(() => musicStore.isPlaying);
