@@ -8,7 +8,7 @@ export default {
     },
     data() {
         return {
-            imageUrl: 'images/header.jpg'
+            imageUrl: 'images/header.webp'
         }
     }
 }
@@ -16,5 +16,5 @@ export default {
 
 
 <template>
-    <Header :imageUrl="imageUrl" />
+    <Header />
 </template>
