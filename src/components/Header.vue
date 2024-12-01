@@ -1,12 +1,10 @@
 <script>
 import { useHusbandStore, useWifeStore } from '../store/index';
-import BackgroundImage from './BackgroundImage.vue';
+
+
 
 export default {
     name: 'Header',
-    components: {
-        BackgroundImage
-    },
     props: {
         imageUrl: {
             type: String,
