@@ -6,9 +6,9 @@ export default {
     components: {
         Header
     },
-    data() {
+    setup() {
         return {
-            imageUrl: 'images/header.webp'
+            imageUrl: '/images/header.webp'
         }
     }
 }
