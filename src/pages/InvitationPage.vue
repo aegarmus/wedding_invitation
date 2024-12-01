@@ -16,5 +16,5 @@ export default {
 
 
 <template>
-    <Header :imageUrl="{imageUrl}" />
+    <Header :imageUrl="imageUrl" />
 </template>
