@@ -8,7 +8,7 @@ export default {
     },
     data() {
         return {
-            imageUrl: 'images/header.jpg'
+            imageUrl: '/images/header.webp'
         }
     }
 }

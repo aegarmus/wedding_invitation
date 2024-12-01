@@ -3,7 +3,7 @@ import { useHusbandStore, useWifeStore } from '../store/index';
 import BackgroundImage from './BackgroundImage.vue';
 
 export default {
-    name: 'HeaderInvitation',
+    name: 'Header',
     components: {
         BackgroundImage
     },
@@ -28,11 +28,10 @@ export default {
 
 
 <template>
-    <header>
-        <BackgroundImage :imageUrl="imageUrl">
-            <div>
-                <h1 class="head__title title-appear">{{ husband }} <span class="save-the-day__span">&</span> {{ wife }}</h1>
-            </div>
-        </BackgroundImage>
+    <header class="header">
+      <img src="/images/header.webp" alt="Imagen de Cabecera" class="header-image" />
+        <div class="header-content">
+            <h1 class="head__title title-appear">{{ husband }} <span class="save-the-day__span">&</span> {{ wife }}</h1>
+        </div>       
     </header>
 </template>
