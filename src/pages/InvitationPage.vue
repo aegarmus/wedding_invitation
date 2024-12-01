@@ -1,12 +1,12 @@
 <script>
-import Header from '../components/Header.vue';
+import Header from '../components';
 
 export default {
     name: 'InvitationPage',
     components: {
         Header
     },
-    data() {
+    setup() {
         return {
             imageUrl: '/images/header.webp'
         }
