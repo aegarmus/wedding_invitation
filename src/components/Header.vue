@@ -1,12 +1,13 @@
 <script>
 import { useHusbandStore, useWifeStore } from '../store/index';
-/* import BackgroundImage from './BackgroundImage.vue'; */
+import BackgroundImage from './BackgroundImage.vue';
+
 
 export default {
     name: 'HeaderInvitation',
-/*     components: {
+    components: {
         BackgroundImage
-    }, */
+    },
     props: {
         imageUrl: {
             type: String,
@@ -29,10 +30,12 @@ export default {
 
 <template>
   <header class="header">
-      <div class="header-content">
-        <h1 class="head__title title-appear white-title">
-          {{ husband }} <span class="save-the-day__span">&</span> {{ wife }}
-        </h1>
-      </div>
+    <BackgroundImage :imageUrl="{imageUrl}">
+        <div class="header-content">
+          <h1 class="head__title title-appear white-title">
+            {{ husband }} <span class="save-the-day__span">&</span> {{ wife }}
+          </h1>
+        </div>
+    </BackgroundImage>
   </header>
 </template>
