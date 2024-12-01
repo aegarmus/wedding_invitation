@@ -30,7 +30,7 @@ export default {
 
 <template>
   <header class="header">
-    <BackgroundImage :imageUrl="{imageUrl}">
+    <BackgroundImage :imageUrl="imageUrl">
         <div class="header-content">
           <h1 class="head__title title-appear white-title">
             {{ husband }} <span class="save-the-day__span">&</span> {{ wife }}

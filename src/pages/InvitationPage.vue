@@ -1,5 +1,5 @@
 <script>
-import Header from '../components/Header.vue';
+import Header from '../components';
 
 export default {
     name: 'InvitationPage',
@@ -16,5 +16,5 @@ export default {
 
 
 <template>
-    <Header />
+    <Header :imageUrl="{imageUrl}" />
 </template>
