@@ -1,13 +1,17 @@
 .header {
-    position: relative;
-    display: inline-block; /* Ajusta el tamaño al contenido (la imagen) */
-    overflow: hidden; /* Evita que el contenido se desborde */
+    position: absolute;
+    top: -20%;
+
+    display: inline-block; 
+
+    width: 100%;
+
+    overflow: hidden; 
   }
   
   .header-image {
     width: 100%;
     height: auto;
-    display: block;
   }
   
   .header::after {
@@ -36,10 +40,25 @@
     left: 50%;
 
     transform: translate(-50%, -50%);
-    
+
     z-index: 2;
 
     text-align: center;
-    width: 100%;
+    width: 100%
   }
   
+.header__title {
+    font-size: clamp(3rem, 8vw, 4rem);
+    font-family: var(--title-solid);
+    font-weight: lighter;
+  
+    letter-spacing: 8px;
+
+    margin: .5rem 0;
+  
+    transition: .5s;
+  }
+
+    .header__title:hover {
+      text-shadow: 0 0 25px #fff;
+    }

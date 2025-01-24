@@ -1,5 +1,5 @@
 <script>
-import Header from '../components';
+import { Header } from '../components';
 
 export default {
     name: 'InvitationPage',

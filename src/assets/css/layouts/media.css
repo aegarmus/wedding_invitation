@@ -5,7 +5,7 @@
         transform: translateX(-50%);
     }
 
-    .head__title {
+    .header__title {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -15,6 +15,21 @@
     .save-the-date__line {
         width: 20%; 
         min-width: 50px;
+    }
+
+    .header {
+        top: 0;
+        /* o el valor que necesites para que se vea correctamente */
+        position: relative;
+        /* si deseas que el header se posicione en el flujo normal */
+    }
+
+    .header__title {
+        font-size: clamp(1.5rem, 4vw, 4rem);
+    }
+
+    .header__title span {
+        font-size: clamp(1.8rem, 3vw, 4.5rem)
     }
 }
 
@@ -31,3 +46,4 @@
         padding-top: 1.5rem;
     }
 }
+
