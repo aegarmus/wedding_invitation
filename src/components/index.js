@@ -10,6 +10,7 @@ import RippleEffect from './RippleEffect.vue';
 import DateInvitation from './DateInvitation.vue';
 import SectionSeparator from './SectionSeparator.vue';
 import EventLocationSecton from './EventLocationSecton.vue';
+import GoogleMapsButton from './GoogleMapsButton.vue';
 
 
 export {
@@ -25,4 +26,5 @@ export {
     DateInvitation,
     SectionSeparator,
     EventLocationSecton,
+    GoogleMapsButton
 }

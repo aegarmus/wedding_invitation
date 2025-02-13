@@ -12,3 +12,19 @@
     font-family: var(--body-font);
     color: var(--contrast-color);
 }
+
+.location-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    font-family: var(--title-cursive);
+    color: var(--contrast-color);
+}
+
+.location-section p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: 400;
+    font-family: var(--body-font);
+    color: var(--contrast-color);
+
+    text-align: center;
+}

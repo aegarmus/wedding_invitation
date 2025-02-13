@@ -1,5 +1,6 @@
 <script>
-import { Header, DateInvitation, SectionSeparator, EventLocationSecton } from '../components';
+import { config } from '../config/env.config.js';
+import { Header, DateInvitation, SectionSeparator, EventLocationSecton, GoogleMapsButton } from '../components';
 
 export default {
     name: 'InvitationPage',
@@ -7,11 +8,13 @@ export default {
         Header,
         DateInvitation,
         SectionSeparator,
-        EventLocationSecton
+        EventLocationSecton,
+        GoogleMapsButton
     },
     setup() {
         return {
-            imageUrl: '/images/header.webp'
+            imageUrl: '/images/header.webp',
+            location: config.place
         }
     }
 }
@@ -37,10 +40,10 @@ export default {
         size="3rem"
     />
 
-    <section>
-        <h2>Ubicación del Evento</h2>
-        <p>{{ location }}</p>
-        
+    <section class="my-2 flex-column-center location-section">
+        <h2 class="mb-1">Ubicación del Evento</h2>
+        <p class="mb-1">{{ location }}</p>
+        <GoogleMapsButton />
     </section>
 
     <section>
