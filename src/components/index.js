@@ -13,6 +13,7 @@ import EventLocationSecton from './EventLocationSecton.vue';
 import GoogleMapsButton from './GoogleMapsButton.vue';
 import TransferDetails from './TransferDetails.vue';
 import MusicSuggestion from './MusicSuggestion.vue';
+import AttendanceConfirmation from './AttendanceConfirmation.vue';
 
 
 export {
@@ -30,5 +31,6 @@ export {
     EventLocationSecton,
     GoogleMapsButton,
     TransferDetails,
-    MusicSuggestion
+    MusicSuggestion,
+    AttendanceConfirmation
 }

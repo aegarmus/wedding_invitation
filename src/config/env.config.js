@@ -1,5 +1,6 @@
 export const config = {
-    apiMaps: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+    apiMaps: import.meta.env.VITE_GOOGLE_API_KEY,
+    clientId: import.meta.env.VITE_GOOGLE_API_KEY,
     place: import.meta.env.VITE_PLACE,
     bankAccount: {
         bank: import.meta.env.VITE_BANK,

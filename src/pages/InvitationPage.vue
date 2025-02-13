@@ -7,7 +7,8 @@ import {
     EventLocationSecton, 
     GoogleMapsButton, 
     TransferDetails, 
-    MusicSuggestion
+    MusicSuggestion,
+    AttendanceConfirmation
 } from '../components';
 
 export default {
@@ -19,7 +20,8 @@ export default {
         EventLocationSecton,
         GoogleMapsButton,
         TransferDetails,
-        MusicSuggestion
+        MusicSuggestion,
+        AttendanceConfirmation
     },
     setup() {
         return {
@@ -97,6 +99,24 @@ export default {
         <p class="mb-1 section-p">¡Queremos que seas parte de la banda sonora de nuestro día! Ayúdanos a armar la playlist del evento con tus sugerencias!.</p>
 
         <MusicSuggestion />
+    </section>
+
+    <section class="my-2 p-1 text-center flex-column-center ">
+        <h3 class="mb-1 section-title">Itinerario</h3>
+    </section>
+
+    <section class="my-2 p-1 text-center flex-column-center bg-contrast">
+        <SectionSeparator
+            iconSrc="/icons/wedding-rings.svg"
+            colorStart="--neutral-color"
+            colorEnd="--primary-color400"
+            size="3rem"
+        />
+
+        <h3 class="mb-1 section-title">Banquete</h3>
+        <p class="mb-1 section-p">¡Ven a disfrutar de una deliciosa cena medieval! ¡Habrá opciones para todos los gustos!</p>
+
+        <AttendanceConfirmation />
     </section>
 
     <section class="my-2 flex-column-center bg-contrast">
