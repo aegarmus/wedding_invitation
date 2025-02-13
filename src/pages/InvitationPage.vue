@@ -6,7 +6,8 @@ import {
     SectionSeparator, 
     EventLocationSecton, 
     GoogleMapsButton, 
-    TransferDetails 
+    TransferDetails, 
+    MusicSuggestion
 } from '../components';
 
 export default {
@@ -17,7 +18,8 @@ export default {
         SectionSeparator,
         EventLocationSecton,
         GoogleMapsButton,
-        TransferDetails
+        TransferDetails,
+        MusicSuggestion
     },
     setup() {
         return {
@@ -81,6 +83,20 @@ export default {
         <p class="mb-1 section-p">Tu presencia es el mejor regalo para nosotros, así que no es necesario traer nada.</p>
         <p class="mb-1 section-p">Si deseas hacernos un detalle, puedes aportar de manera voluntaria a nuestro hogar con una donación. ¡Lo más importante es compartir juntos este día especial!</p>
         <TransferDetails />
+    </section>
+
+    <section class="my-2 p-1 text-center flex-column-center bg-contrast dress-section">
+        <SectionSeparator
+            iconSrc="/icons/music.svg"
+            colorStart="--neutral-color"
+            colorEnd="--primary-color400"
+            size="3rem"
+        />
+
+        <h3 class="mb-1 section-title">Recomendaciones</h3>
+        <p class="mb-1 section-p">¡Queremos que seas parte de la banda sonora de nuestro día! Ayúdanos a armar la playlist del evento con tus sugerencias!.</p>
+
+        <MusicSuggestion />
     </section>
 
     <section class="my-2 flex-column-center bg-contrast">

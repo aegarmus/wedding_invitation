@@ -8,5 +8,9 @@ export const config = {
         type: import.meta.env.VITE_TYPE_ACCOUNT,
         rut: import.meta.env.VITE_RUT,
         email: import.meta.env.VITE_EMAIL_ACCOUNT
-    }
+    },
+    spotify: {
+        clientId: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
+        clientSecret: import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
+    },
 };

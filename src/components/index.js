@@ -12,6 +12,7 @@ import SectionSeparator from './SectionSeparator.vue';
 import EventLocationSecton from './EventLocationSecton.vue';
 import GoogleMapsButton from './GoogleMapsButton.vue';
 import TransferDetails from './TransferDetails.vue';
+import MusicSuggestion from './MusicSuggestion.vue';
 
 
 export {
@@ -28,5 +29,6 @@ export {
     SectionSeparator,
     EventLocationSecton,
     GoogleMapsButton,
-    TransferDetails
+    TransferDetails,
+    MusicSuggestion
 }

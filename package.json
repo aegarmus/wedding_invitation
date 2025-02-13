@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.7.9",
     "particles.js": "^2.0.0",
     "pinia": "^2.2.5",
     "vue": "^3.5.12",
