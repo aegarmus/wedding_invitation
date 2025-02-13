@@ -9,6 +9,7 @@ import ParticlesEffect from './ParticlesEffect.vue';
 import RippleEffect from './RippleEffect.vue';
 import DateInvitation from './DateInvitation.vue';
 import SectionSeparator from './SectionSeparator.vue';
+import EventLocationSecton from './EventLocationSecton.vue';
 
 
 export {
@@ -22,5 +23,6 @@ export {
     ParticlesEffect,
     RippleEffect,
     DateInvitation,
-    SectionSeparator
+    SectionSeparator,
+    EventLocationSecton,
 }

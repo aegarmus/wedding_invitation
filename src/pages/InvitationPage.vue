@@ -1,12 +1,13 @@
 <script>
-import { Header, DateInvitation, SectionSeparator } from '../components';
+import { Header, DateInvitation, SectionSeparator, EventLocationSecton } from '../components';
 
 export default {
     name: 'InvitationPage',
     components: {
         Header,
         DateInvitation,
-        SectionSeparator
+        SectionSeparator,
+        EventLocationSecton
     },
     setup() {
         return {
@@ -20,14 +21,14 @@ export default {
 <template>
     <Header :imageUrl="imageUrl" />
 
-    <div>
+    <section>
         <div class="annunce-content mb-1 mt-2 flex-column-center">
             <h2>¡Nos Casamos!</h2>
             <p>Los esperamos</p>
             <p>Para celebrar juntos este día</p>
         </div>
         <DateInvitation />
-    </div>
+    </section>
 
     <SectionSeparator
         iconSrc="/icons/bird-love.svg"
@@ -36,6 +37,15 @@ export default {
         size="3rem"
     />
 
+    <section>
+        <h2>Ubicación del Evento</h2>
+        <p>{{ location }}</p>
+        
+    </section>
+
+    <section>
+        <EventLocationSecton />
+    </section>
 
 
 </template>
