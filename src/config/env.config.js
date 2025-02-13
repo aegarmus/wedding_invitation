@@ -1,0 +1,4 @@
+export const config = {
+    apiMaps: process.env.VUE_APP_GOOGLE_MAPS_API_KEY,
+    place: process.env.VUE_APP_PLACE,
+};

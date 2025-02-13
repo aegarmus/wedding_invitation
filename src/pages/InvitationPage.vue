@@ -1,12 +1,12 @@
 <script>
-import { Header } from '../components';
-import DateInvitation from '../components/DateInvitation.vue';
+import { Header, DateInvitation, SectionSeparator } from '../components';
 
 export default {
     name: 'InvitationPage',
     components: {
         Header,
-        DateInvitation
+        DateInvitation,
+        SectionSeparator
     },
     setup() {
         return {
@@ -29,6 +29,13 @@ export default {
         <DateInvitation />
     </div>
 
-    
+    <SectionSeparator
+        iconSrc="/icons/bird-love.svg"
+        colorStart="--primary-color200"
+        colorEnd="--primary-color400"
+        size="3rem"
+    />
+
+
 
 </template>

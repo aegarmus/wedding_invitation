@@ -7,6 +7,8 @@ import InvitationButton from './InvitationButton.vue';
 import MusicPlayer from './MusicPlayer.vue';
 import ParticlesEffect from './ParticlesEffect.vue';
 import RippleEffect from './RippleEffect.vue';
+import DateInvitation from './DateInvitation.vue';
+import SectionSeparator from './SectionSeparator.vue';
 
 
 export {
@@ -19,4 +21,6 @@ export {
     MusicPlayer,
     ParticlesEffect,
     RippleEffect,
+    DateInvitation,
+    SectionSeparator
 }

@@ -1,9 +1,10 @@
 :root {
-    --primary-color200: #9cb2a5;
-    --primary-color400: #6f8d74;
+    --primary-color200: #66e59b;
+    --primary-color400: #3d5b41;
     --secondary-color500: #d16d58;
     --secondary-color600: #b8573b;
-    --contrast-color: #44667f;
+    --contrast-color-500: #509fd7;
+    --contrast-color: #0b4670;
 
     --neutral-color: #f2e2f4;
     --neutral-color-shadow: #fff
