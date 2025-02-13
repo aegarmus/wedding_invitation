@@ -47,3 +47,16 @@
     }
 }
 
+@media (min-width: 481px) and (max-width: 1024px) {
+    .header {
+        /* Quizá quieras mantener position absolute pero con top más ajustado */
+        position: absolute;
+        top: 0;
+        /* Ajusta a tus necesidades: por ejemplo, -5% o 0 */
+    }
+
+    .head__title {
+        font-size: clamp(2rem, 5vw, 4rem);
+    }
+}
+

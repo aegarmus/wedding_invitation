@@ -1,6 +1,6 @@
 .header {
-    position: absolute;
-    top: -20%;
+    position: relative;
+    height: 50hv;
 
     display: inline-block; 
 

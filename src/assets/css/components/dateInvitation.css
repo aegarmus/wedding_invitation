@@ -1,0 +1,60 @@
+.date-invitation {
+    margin-bottom: 2rem;
+    width: 65%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.date-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    margin-left: -1rem;
+}
+
+
+
+.date-line {
+    width: 100%;
+    border: 0;
+    border-top: 2px solid var(--contrast-color);
+    margin: 0.5rem 0;
+}
+
+.date-day h2,
+.date-month h2 {
+    font-family: var(--title-cursive);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--contrast-color);
+    margin: 0;
+}
+
+.date-day-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+}
+
+.date-day-number h2 {
+    font-family: var(--title-solid);
+    font-size: clamp(4rem, 10vw, 8rem);
+    /* Aumenta el tamaño del número 25 */
+    margin: 0;
+    color: var(--contrast-color);
+}
+
+.date-year {
+    font-family: var(--title-solid);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: bold;
+    color: var(--contrast-color);
+    margin-top: 0.5rem;
+    text-align: center;
+}

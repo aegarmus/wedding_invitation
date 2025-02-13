@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useEventDateStore = defineStore("eventDateStore", {
   state: () => ({
-    releaseDate: new Date("2025-02-15"),
+    releaseDate: new Date("2025-01-20"),
     eventDate: "2025-04-25",
     timeInit: "18:00",
     durationHours: 4,
