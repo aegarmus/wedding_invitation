@@ -63,6 +63,8 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
+
+    z-index: 2;
 }
 
 .line {

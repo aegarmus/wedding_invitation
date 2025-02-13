@@ -11,6 +11,7 @@ import DateInvitation from './DateInvitation.vue';
 import SectionSeparator from './SectionSeparator.vue';
 import EventLocationSecton from './EventLocationSecton.vue';
 import GoogleMapsButton from './GoogleMapsButton.vue';
+import TransferDetails from './TransferDetails.vue';
 
 
 export {
@@ -26,5 +27,6 @@ export {
     DateInvitation,
     SectionSeparator,
     EventLocationSecton,
-    GoogleMapsButton
+    GoogleMapsButton,
+    TransferDetails
 }

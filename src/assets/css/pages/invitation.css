@@ -1,30 +1,45 @@
-.annunce-content h2 {
+.annunce-content h2, 
+.annunce-content h3, 
+.annunce-content p,
+.location-section p,
+.gift-section p,
+.gift-section h3 {
+    color: var(--contrast-color);
+}
+
+.location-section .event-time {
+    font-family: var(--title-cursive);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: bold;
+}
+
+.location-section span {
+    font-size: clamp(2rem, 2vw, 3.5rem);
+}
+
+.bg-contrast {
+    background-color: var(--contrast-color);
+    color: var(--neutral-color);
+}
+
+
+.section-title{
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 700;
     font-family: var(--title-cursive);
-    
-    color: var(--contrast-color);
 }
 
-.annunce-content p {
+.section-p {
     font-size: clamp(1rem, 2vw, 1.5rem);
     font-weight: 400;
     font-family: var(--body-font);
-    color: var(--contrast-color);
+    line-height: 1.6;
 }
 
-.location-section h2 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+
+
+.dress-section h4{
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 700;
     font-family: var(--title-cursive);
-    color: var(--contrast-color);
-}
-
-.location-section p {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    font-weight: 400;
-    font-family: var(--body-font);
-    color: var(--contrast-color);
-
-    text-align: center;
 }
