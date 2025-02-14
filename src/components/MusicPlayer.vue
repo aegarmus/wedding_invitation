@@ -1,4 +1,3 @@
-
 <script>
 import { onMounted, onBeforeUnmount, ref, watch, computed } from 'vue';
 import { useMusicStore } from '../store';
@@ -31,9 +30,13 @@ export default {
         };
 
         onMounted(() => {
-            audioElement.value = new Audio(props.audioSrc);
-            audioElement.value.loop = true;
-            musicStore.setAudio(audioElement.value);
+            if (!musicStore.audio) {
+                audioElement.value = new Audio(props.audioSrc);
+                audioElement.value.loop = true;
+                musicStore.setAudio(audioElement.value);
+            } else {
+                audioElement.value = musicStore.audio;
+            }
 
             audioElement.value.addEventListener('play', () => {
                 musicStore.setIsPlaying(true);
@@ -50,12 +53,6 @@ export default {
 
         onBeforeUnmount(() => {
             document.removeEventListener('visibilitychange', handleVisibilityChange);
-
-            if (audioElement.value) {
-                audioElement.value.pause();
-                musicStore.pauseMusic();
-                musicStore.setAudio(null);
-            }
         });
 
         watch(
@@ -85,3 +82,24 @@ export default {
     </button>
   </div>
 </template>
+
+<style scoped>
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.music-toggle-button {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.music-toggle-button:hover {
+  color: #f2e2f4;
+}
+</style>

@@ -8,7 +8,10 @@ import {
     GoogleMapsButton, 
     TransferDetails, 
     MusicSuggestion,
-    AttendanceConfirmation
+    AttendanceConfirmation,
+    Itinerary,
+    ImageCarousel,
+    MusicPlayer
 } from '../components';
 
 export default {
@@ -21,12 +24,26 @@ export default {
         GoogleMapsButton,
         TransferDetails,
         MusicSuggestion,
-        AttendanceConfirmation
+        AttendanceConfirmation,
+        Itinerary,
+        ImageCarousel,
+        MusicPlayer
     },
     setup() {
+
+        const carouselImages = [
+            '/images/carrusel1.jpg',
+            '/images/carrusel2.jpg',
+            '/images/carrusel3.jpg',
+            '/images/carrusel4.jpg',
+            '/images/carrusel5.jpg',
+            '/images/carrusel6.jpg',
+        ]
+
         return {
             imageUrl: '/images/header.webp',
-            location: config.place
+            location: config.place,
+            carouselImages
         }
     }
 }
@@ -119,9 +136,23 @@ export default {
         <AttendanceConfirmation />
     </section>
 
-    <section class="my-2 flex-column-center bg-contrast">
-        <EventLocationSecton />
+    <SectionSeparator
+        v-scroll-animation
+        iconSrc="/icons/camera.svg"
+        colorStart="--primary-color200"
+        colorEnd="--primary-color400"
+        size="3rem"
+    />
+
+    <section v-scroll-animation class="my-2 p-1 text-center flex-column-center photo-section">
+        <p class="mb-1 section-p">Algunos de los momentos que han marcado nuestro viaje</p>
+
+        <ImageCarousel :images="carouselImages" />
     </section>
 
+    <section v-scroll-animation class="my-2 flex-column-center bg-contrast">
+        <EventLocationSecton v-scroll-animation />
+    </section>
 
+    <MusicPlayer audioSrc="/audio/bg3_prueba.mp3" />
 </template>
