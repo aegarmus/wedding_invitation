@@ -1,29 +1,4 @@
-.ripple-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 5;
-
-    width: 100%;
-    height: 100%;
-
-    overflow: hidden;
-    
-    pointer-events: none;
-}
-
-.ripple {
-    position: absolute;
-
-    background-color: transparent;
-    
-    opacity: 1;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    transform: scale(0);
-    transform-origin: center;
+.particles-container {
+    z-index: 4;
 }
 
