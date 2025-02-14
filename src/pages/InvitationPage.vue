@@ -8,7 +8,8 @@ import {
     GoogleMapsButton, 
     TransferDetails, 
     MusicSuggestion,
-    AttendanceConfirmation
+    AttendanceConfirmation,
+    PhotoUpload
 } from '../components';
 
 export default {
@@ -21,7 +22,8 @@ export default {
         GoogleMapsButton,
         TransferDetails,
         MusicSuggestion,
-        AttendanceConfirmation
+        AttendanceConfirmation,
+        PhotoUpload
     },
     setup() {
         return {
@@ -117,6 +119,19 @@ export default {
         <p class="mb-1 section-p">¡Ven a disfrutar de una deliciosa cena medieval! ¡Habrá opciones para todos los gustos!</p>
 
         <AttendanceConfirmation />
+    </section>
+
+        <SectionSeparator
+        iconSrc="/icons/camera.svg"
+        colorStart="--primary-color200"
+        colorEnd="--primary-color400"
+        size="3rem"
+    />
+
+    <section class="my-2 p-1 text-center flex-column-center ">
+        <h3 class="mb-1 section-title">Fotos</h3>
+        <p class="mb-1 section-p">¡Ayúdanos a capturar los mejores momentos de nuestro día! Sube tus fotos del evento para que todos podamos disfrutarlas.</p>
+        <PhotoUpload />
     </section>
 
     <section class="my-2 flex-column-center bg-contrast">
