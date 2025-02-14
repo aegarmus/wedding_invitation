@@ -14,7 +14,8 @@ import GoogleMapsButton from './GoogleMapsButton.vue';
 import TransferDetails from './TransferDetails.vue';
 import MusicSuggestion from './MusicSuggestion.vue';
 import AttendanceConfirmation from './AttendanceConfirmation.vue';
-import PhotoUpload from './PhotoUpload.vue';
+import Itinerary from './Itinerary.vue';
+import ImageCarousel from './ImageCarousel.vue';
 
 
 export {
@@ -34,5 +35,6 @@ export {
     TransferDetails,
     MusicSuggestion,
     AttendanceConfirmation,
-    PhotoUpload
+    Itinerary,
+    ImageCarousel
 }
