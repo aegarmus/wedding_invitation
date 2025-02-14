@@ -11,7 +11,8 @@ export default {
     computed: {
         googleMapUrl() {
             const baseUrl = 'https://www.google.com/maps/embed/v1/place';
-            const apiKey = config.apiMaps;
+            const apiKey = config.google.apiMaps;
+            console.log(apiKey);
             const query = encodeURIComponent(this.location);
             return `${baseUrl}?key=${apiKey}&q=${query}`;
         }
