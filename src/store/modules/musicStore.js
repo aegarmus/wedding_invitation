@@ -11,7 +11,6 @@ export const useMusicStore = defineStore("musicStore", () => {
         await audio.value.play();
         isPlaying.value = true;
       } catch (error) {
-        console.error("La música fue bloqueada:", error);
         isPlaying.value = false;
       }
     }
@@ -37,7 +36,6 @@ export const useMusicStore = defineStore("musicStore", () => {
   };
   const setIsPlaying = (value) => {
     isPlaying.value = value;
-    console.log("isPlaying actualizado a:", value);
   };
 
   return {

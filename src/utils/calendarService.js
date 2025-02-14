@@ -1,3 +1,7 @@
+import { config } from '../config/env.config.js';
+
+const{ place } = config;
+
 export const addToGoogleCalendar = (date, timeInit, timeFinish) => {
     
     const eventDate = date.replace(/-/g, '');
@@ -9,7 +13,7 @@ export const addToGoogleCalendar = (date, timeInit, timeFinish) => {
         text: 'Matrimonio Alan y Mariel',
         dates: `${eventDate}T${formatTimeInit}/${eventDate}T${formatTimeFinish}`,
         details: 'Te esperamos en nuestro gran día c:',
-        location: 'José Miguel Carrera 12784, El Bosque, Santiago, Chile'
+        location: place
     };
 
     const BASE_URL = 'https://calendar.google.com/calendar/render';
