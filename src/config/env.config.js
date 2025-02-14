@@ -1,7 +1,12 @@
 export const config = {
-    apiMaps: import.meta.env.VITE_GOOGLE_API_KEY,
-    clientId: import.meta.env.VITE_GOOGLE_API_KEY,
     place: import.meta.env.VITE_PLACE,
+    google: {
+        apiMaps: import.meta.env.VITE_GOOGLE_API_KEY,
+        clientId: import.meta.env.VITE_GOOGLE_API_KEY,
+        clientEmail: import.meta.env.VITE_GOOGLE_CLIENT_EMAIL,
+        privateKey: import.meta.env.VITE_GOOGLE_PRIVATE_KEY,
+        folderId: import.meta.env.VITE_FOLDER_ID_GOOGLE_DRIVE
+    },
     bankAccount: {
         bank: import.meta.env.VITE_BANK,
         account: import.meta.env.VITE_BANK_ACCOUNT,
