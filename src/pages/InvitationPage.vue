@@ -154,5 +154,5 @@ export default {
         <EventLocationSecton v-scroll-animation />
     </section>
 
-    <MusicPlayer audioSrc="/audio/bg3_prueba.mp3" />
+    <MusicPlayer audioSrc="/audio/bg3_prueba.mp3" :useGradient="true" />
 </template>

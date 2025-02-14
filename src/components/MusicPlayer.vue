@@ -9,6 +9,10 @@ export default {
             type: String,
             required: true,
         },
+        useGradient: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup(props) {
         const musicStore = useMusicStore();
@@ -73,9 +77,9 @@ export default {
 <template>
   <div class="music-control">
     <button
-      v-touch-hover="'hover-button'"
       @click="togglePlay"
       class="music-toggle-button"
+      :class="{ 'icon-gradient': useGradient }"
       aria-label="Toggle Music"
     >
       <i :class="isPlaying ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i> 
@@ -95,11 +99,23 @@ export default {
   background: none;
   border: none;
   font-size: 2rem;
-  color: #fff;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: transform 0.3s ease;
+  color: #fff; /* Default color */
 }
 
 .music-toggle-button:hover {
-  color: #f2e2f4;
+  transform: scale(1.1);
+}
+
+.music-toggle-button:focus {
+  outline: none;
+}
+
+.icon-gradient {
+  background: linear-gradient(45deg, var(--primary-color200), var(--primary-color400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>

@@ -182,7 +182,11 @@ export default {
         <BackgroundImage :imageUrl="imageUrl">
           <MusicPlayer audioSrc="/audio/bg3_prueba.mp3" />
           <header class="save-the-date text-center">
-              <h1 translate="no" class="head__title title-appear">SAVE <span class="save-the-day__span">the</span> DATE</h1>
+              <h1 translate="no" class="head__title title-appear flex-column-center">
+                <span class="save-the-date__word">SAVE</span>
+                <span class="save-the-day__span">the</span>
+                <span class="save-the-date__word">DATE</span>
+              </h1>
               <div class="save-the-date__date-container flex-center zoom-appear">
                   <hr class="save-the-date__line">
                   <p class="save-the-date__date">{{ formatDate }}</p>
