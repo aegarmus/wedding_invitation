@@ -19,4 +19,5 @@ export const config = {
         clientId: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
         clientSecret: import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
     },
+    apiUrl: import.meta.env.VITE_API_URL,
 };
