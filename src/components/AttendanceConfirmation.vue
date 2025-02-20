@@ -1,5 +1,7 @@
 <script>
 import { ref, reactive } from 'vue';
+import axios from 'axios';
+import { config } from '../config/env.config.js';
 
 export default {
     name: 'AttendanceConfirmation',
@@ -13,8 +15,8 @@ export default {
             chronicConditions: []
         });
 
-        const allergyOptions = ['Gluten', 'Lactosa', 'Nueces'];
-        const chronicConditionOptions = ['Diabetes', 'Hipertensión'];
+        const allergyOptions = ['No aplica','Gluten', 'Lactosa', 'Nueces'];
+        const chronicConditionOptions = ['No aplica','Diabetes', 'Hipertensión'];
 
         const addAllergy = (allergy) => {
             if (!details.allergies.includes(allergy)) {
@@ -28,13 +30,20 @@ export default {
             }
         };
 
-        const submitForm = () => {
-            // Aquí se enviarán los datos al backend en el futuro
-            console.log({
-                name: name.value,
-                attending: attending.value,
-                details: attending.value ? details : null
-            });
+        const submitForm = async () => {
+            try {
+                const response = await axios.post(`${config.apiUrl}/api/guests`, {
+                    name: name.value,
+                    confirmed: attending.value,
+                    invitedBy: details.invitedBy,
+                    foodType: details.mealPreference,
+                    allergies: details.allergies,
+                    chronicDiseases: details.chronicConditions
+                });
+                console.log('Guest created:', response.data);
+            } catch (error) {
+                console.error('Error creating guest:', error);
+            }
         };
 
         return {

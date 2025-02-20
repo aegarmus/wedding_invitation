@@ -1,5 +1,7 @@
 <script>
 import { ref } from 'vue';
+import axios from 'axios';
+import { config } from '../config/env.config.js';
 import { searchTracks } from '../utils/spotyfyService';
 
 export default {
@@ -29,12 +31,23 @@ export default {
             suggestions.value = [];
         };
 
+        const submitTracks = async () => {
+            try {
+                console.log(selectedTracks.value[0])
+                const response = await axios.post(`${config.apiUrl}/api/playlist`, selectedTracks.value);
+                console.log('Playlist items created:', response.data);
+            } catch (error) {
+                console.error('Error creating playlist items:', error);
+            }
+        };
+
         return {
             query,
             suggestions,
             selectedTracks,
             fetchSuggestions,
-            addTrack
+            addTrack,
+            submitTracks
         };
     }
 }
@@ -63,11 +76,12 @@ export default {
             <li v-for="track in selectedTracks" :key="track.id" class="selected-track-item">
                 <img :src="track.album.images[2]?.url" alt="Album cover" class="album-cover" />
                 <div class="track-info">
-                    <span class="track-name">{{ track.name }}</span>
+                    <span class="track-name-selected">{{ track.name }}</span>
                     <span class="track-artist">{{ track.artists[0]?.name }}</span>
                 </div>
             </li>
         </ul>
+        <button @click="submitTracks" class="music-button">Enviar Sugerencias</button>
     </div>
 </template>
 
@@ -137,6 +151,11 @@ export default {
     color: var(--contrast-color);
 }
 
+.track-name-selected {
+    font-weight: bold;
+    color: var(--neutral-color);
+}
+
 .track-artist {
     color: var(--contrast-color-500);
 }
@@ -158,5 +177,20 @@ export default {
     height: 40px;
     margin-right: 10px;
     border-radius: 5px;
+}
+
+.music-button {
+    background: linear-gradient(to right, var(--primary-color200), var(--primary-color400));
+    color: white;
+    border: none;
+    padding: .6rem 2rem;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.music-button:hover {
+    background: linear-gradient(to left, var(--primary-color200), var(--primary-color400));
 }
 </style>

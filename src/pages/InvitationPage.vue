@@ -1,3 +1,53 @@
+<script>
+  import { config } from '../config/env.config.js';
+  import { 
+      Header, 
+      DateInvitation, 
+      SectionSeparator, 
+      EventLocationSecton, 
+      GoogleMapsButton, 
+      TransferDetails, 
+      MusicSuggestion,
+      AttendanceConfirmation,
+      Itinerary,
+      ImageCarousel,
+      MusicPlayer
+  } from '../components';
+  
+  export default {
+      name: 'InvitationPage',
+      components: {
+          Header,
+          DateInvitation,
+          SectionSeparator,
+          EventLocationSecton,
+          GoogleMapsButton,
+          TransferDetails,
+          MusicSuggestion,
+          AttendanceConfirmation,
+          Itinerary,
+          ImageCarousel,
+          MusicPlayer
+      },
+      setup() {
+          const carouselImages = [
+              '/images/carrusel1.jpg',
+              '/images/carrusel2.jpg',
+              '/images/carrusel3.jpg',
+              '/images/carrusel4.jpg',
+              '/images/carrusel5.jpg',
+              '/images/carrusel6.jpg',
+          ];
+  
+          return {
+              imageUrl: '/images/header.webp',
+              location: config.place,
+              carouselImages
+          }
+      }
+  }
+</script>
+
 <template>
   <Header v-scroll-animation :imageUrl="imageUrl" />
 
@@ -112,53 +162,3 @@
 
   <MusicPlayer audioSrc="/audio/bg3_prueba.mp3" :useGradient="true" />
 </template>
-
-<script>
-import { config } from '../config/env.config.js';
-import { 
-    Header, 
-    DateInvitation, 
-    SectionSeparator, 
-    EventLocationSecton, 
-    GoogleMapsButton, 
-    TransferDetails, 
-    MusicSuggestion,
-    AttendanceConfirmation,
-    Itinerary,
-    ImageCarousel,
-    MusicPlayer
-} from '../components';
-
-export default {
-    name: 'InvitationPage',
-    components: {
-        Header,
-        DateInvitation,
-        SectionSeparator,
-        EventLocationSecton,
-        GoogleMapsButton,
-        TransferDetails,
-        MusicSuggestion,
-        AttendanceConfirmation,
-        Itinerary,
-        ImageCarousel,
-        MusicPlayer
-    },
-    setup() {
-        const carouselImages = [
-            '/images/carrusel1.jpg',
-            '/images/carrusel2.jpg',
-            '/images/carrusel3.jpg',
-            '/images/carrusel4.jpg',
-            '/images/carrusel5.jpg',
-            '/images/carrusel6.jpg',
-        ];
-
-        return {
-            imageUrl: '/images/header.webp',
-            location: config.place,
-            carouselImages
-        }
-    }
-}
-</script>

@@ -1,6 +1,5 @@
 <template>
   <div class="itinerary scroll-animate">
-    <h2 class="section-title scroll-animate">Itinerario</h2>
     <div class="timeline">
       <div v-for="(event, index) in events" :key="index" class="timeline-item scroll-animate">
         <div class="dot" :style="{ backgroundColor: event.color }"></div>
