@@ -33,7 +33,7 @@ export default {
 
         const submitTracks = async () => {
             try {
-                console.log(selectedTracks.value[0])
+                console.log(config.apiUrl);
                 const response = await axios.post(`${config.apiUrl}/api/playlist`, selectedTracks.value);
                 console.log('Playlist items created:', response.data);
             } catch (error) {
