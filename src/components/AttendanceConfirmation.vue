@@ -2,9 +2,11 @@
 import { ref, reactive } from 'vue';
 import axios from 'axios';
 import { config } from '../config/env.config.js';
+import Alert from './Alert.vue';
 
 export default {
     name: 'AttendanceConfirmation',
+    components: { Alert },
     setup() {
         const name = ref('');
         const attending = ref(null);
@@ -14,6 +16,9 @@ export default {
             allergies: [],
             chronicConditions: []
         });
+        const showAlert = ref(false);
+        const alertMessage = ref('');
+        const alertType = ref('success');
 
         const allergyOptions = ['No aplica','Gluten', 'Lactosa', 'Nueces'];
         const chronicConditionOptions = ['No aplica','Diabetes', 'Hipertensión'];
@@ -40,9 +45,13 @@ export default {
                     allergies: details.allergies,
                     chronicDiseases: details.chronicConditions
                 });
-                console.log('Guest created:', response.data);
+                alertMessage.value = 'Gracias por confirmar tu participación! c:';
+                alertType.value = 'success';
             } catch (error) {
-                console.error('Error creating guest:', error);
+                alertMessage.value = 'Error al enviar la confirmación.';
+                alertType.value = 'error';
+            } finally {
+                showAlert.value = true;
             }
         };
 
@@ -54,7 +63,10 @@ export default {
             chronicConditionOptions,
             addAllergy,
             addChronicCondition,
-            submitForm
+            submitForm,
+            showAlert,
+            alertMessage,
+            alertType
         };
     }
 }
@@ -135,6 +147,7 @@ export default {
             </div>
         </transition>
         <button @click="submitForm" class="attendance-button">Enviar</button>
+        <Alert v-if="showAlert" :message="alertMessage" :type="alertType" />
     </div>
 </template>
 

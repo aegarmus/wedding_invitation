@@ -91,7 +91,7 @@
 
   <SectionSeparator
     v-scroll-animation
-    iconSrc="/icons/money.svg"
+    iconSrc="/icons/gift-card.svg"
     colorStart="--primary-color200"
     colorEnd="--primary-color400"
     size="3rem"
@@ -100,7 +100,7 @@
   <section v-scroll-animation class="my-2 p-1 text-center flex-column-center gift-section">
     <h3 v-scroll-animation class="mb-1 section-title">Regalos</h3>
     <p v-scroll-animation class="mb-1 section-p">Tu presencia es el mejor regalo para nosotros, así que no es necesario traer nada.</p>
-    <p v-scroll-animation class="mb-1 section-p">Si deseas hacernos un detalle, puedes aportar de manera voluntaria a nuestro hogar con una donación. ¡Lo más importante es compartir juntos este día especial!</p>
+    <p v-scroll-animation class="mb-1 section-p">Si deseas hacernos un detalle, puedes aportar de manera voluntaria a nuestro hogar con una donación, ya sea por transferencia o con un sobre anonimo. ¡Lo más importante es compartir juntos este día especial!</p>
     <TransferDetails v-scroll-animation />
   </section>
 
