@@ -3,13 +3,18 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { config } from '../config/env.config.js';
 import { searchTracks } from '../utils/spotyfyService';
+import Alert from './Alert.vue';
 
 export default {
     name: 'MusicSuggestion',
+    components: { Alert },
     setup() {
         const query = ref('');
         const suggestions = ref([]);
         const selectedTracks = ref([]);
+        const showAlert = ref(false);
+        const alertMessage = ref('');
+        const alertType = ref('success');
 
         const fetchSuggestions = async () => {
             if (query.value.length > 2) {
@@ -33,11 +38,14 @@ export default {
 
         const submitTracks = async () => {
             try {
-                console.log(selectedTracks.value[0])
                 const response = await axios.post(`${config.apiUrl}/api/playlist`, selectedTracks.value);
-                console.log('Playlist items created:', response.data);
+                alertMessage.value = 'Gracias por tus sugerencias! c:';
+                alertType.value = 'success';
             } catch (error) {
-                console.error('Error creating playlist items:', error);
+                alertMessage.value = 'Error al enviar las sugerencias.';
+                alertType.value = 'error';
+            } finally {
+                showAlert.value = true;
             }
         };
 
@@ -47,7 +55,10 @@ export default {
             selectedTracks,
             fetchSuggestions,
             addTrack,
-            submitTracks
+            submitTracks,
+            showAlert,
+            alertMessage,
+            alertType
         };
     }
 }
@@ -82,6 +93,7 @@ export default {
             </li>
         </ul>
         <button @click="submitTracks" class="music-button">Enviar Sugerencias</button>
+        <Alert v-if="showAlert" :message="alertMessage" :type="alertType" />
     </div>
 </template>
 
