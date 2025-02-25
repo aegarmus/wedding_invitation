@@ -75,7 +75,7 @@ export default {
 <template>
     <div class="attendance-confirmation">
         <h3 class="section-title">Confirmación de Asistencia</h3>
-        <p class="section-p">Por favor confirma tu asistencia antes del 2 de mayo.</p>
+        <p class="section-p">Por favor confirma tu asistencia antes del 2 de marzo.</p>
         <input
             type="text"
             v-model="name"
